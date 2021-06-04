@@ -661,6 +661,10 @@ func InitializeApp() (*App, error) {
 		external2.NewExternalAppsDetailRepositoryImpl,
 		wire.Bind(new(external2.ExternalAppsDetailRepository), new(*external2.ExternalAppsDetailRepositoryImpl)),
 		util.NewGitCliUtil,
+		router.NewSsoLoginRouterImpl,
+		wire.Bind(new(router.SsoLoginRouter), new(*router.SsoLoginRouterImpl)),
+		restHandler.NewSsoLoginRestHandlerImpl,
+		wire.Bind(new(restHandler.SsoLoginRestHandler), new(*restHandler.SsoLoginRestHandlerImpl)),
 	)
 	return &App{}, nil
 }
